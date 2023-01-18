@@ -1,3 +1,7 @@
+# Wordle Game
+
+To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Project/ 
+
 # Plan
 
 ## HTML
@@ -11,6 +15,9 @@
 - Add event listeners to make keyboard items add text to grid elements
 - Add enter (button on the right?) once 5 letters have been input
 - Validate words using validWords Array
+
+-how should I store the users choices? just simple strings?
+-try to make the game work for one guess first
 
 ## CSS
 
