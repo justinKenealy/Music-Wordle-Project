@@ -1,2 +1,15 @@
-# Music-Wordle-Project
-Project submission for GA Software Engineering course
+# Plan
+
+## HTML
+- Create heading elements
+- Create score div
+
+
+## Javascript
+
+
+## CSS
+
+
+
+
