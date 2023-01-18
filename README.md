@@ -2,7 +2,7 @@
 
 ## HTML
 - Create heading elements
-- Create score div
+- Create game grid using HTML div and CSS display: grid
 
 
 ## Javascript
