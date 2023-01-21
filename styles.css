@@ -16,13 +16,18 @@ h1 {
 
 h4 {
     text-align: left;
+    margin: 0;
 }
-
 .instructions {
     text-align: left;
     border: 2px solid rgb(207, 124, 0);
     padding: 10px;
     display: inline-block;
+    margin-top: 15px;
+}
+
+.instructions:hover {
+    cursor: grab;
 }
 
 #instructionsUl {
@@ -50,7 +55,7 @@ ul {
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px;
     grid-template-rows: 60px 60px 60px 60px 60px 60px;
-    margin: 50px auto;
+    margin: 40px auto;
     justify-content: center;
 
 }
@@ -97,6 +102,9 @@ button {
 .key {
     display: flex;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
+}
+
+.key:hover {
+    cursor: grab;    
 }

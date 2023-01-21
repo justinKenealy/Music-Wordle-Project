@@ -3,21 +3,19 @@ const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS
 const musicWords = ["Agoge", "Anima", "Assai", "Basso", "Baton", "Brace", "Breve", "Canon", "Carol", "Catch", "Chant", "Choir", "Chord", "Dance", "Dolce", "Drone", "Etude", "Flute", "Forte", "Fugue", "Fuoco", "Gamba", "Gamut", "Grave", "Gusto", "Large", "Largo", "Lento", "Lyric", "Major", "March", "Metre", "Mezzo", "Minim", "Minor", "Molto", "Mosso", "Motet", "Motif", "Nonet", "Octet", "Opera", "Ossia", "Pause", "Pedal", "Piano", "Pitch", "Primo", "Rondo", "Round", "Scale", "Score", "Segno", "Segue", "Shake", "Sharp", "Sixth", "Slide", "Sol-Fa", "Staff", "Stave", "Strum", "Suite", "Swell", "Table", "Tacet", "Tempo", "Tenor", "Theme", "Third", "Tonic", "Touch", "Triad", "Trill", "Trope", "Tutti", "Upbow", "Valse", "Valve", "Voice", "Yodel"]
 
 //function to create the selected word for each round
+
 const chosenWordCreator = function () {
     const randomNumber = Math.floor(Math.random() * musicWords.length)
     let chosenWord = musicWords[randomNumber]
-    console.log(chosenWord)
-    return chosenWord
+    return chosenWord.toUpperCase()
 }
 
-chosenWordCreator()
+let chosenWord = chosenWordCreator()
+console.log(chosenWord)
 
-//variables for each guess
-let userGuess1 = ''
-let userGuess2 = ''
-let userGuess3 = ''
-let userGuess4 = ''
-let userGuess5 = ''
+//count for the entire game
+let roundCount = 0
+
 
 //function to hide/show instructions
 const instructionDiv = document.querySelector('.instructions')
@@ -29,7 +27,7 @@ instructionDiv.addEventListener('click', function(){
     if (instructionsHidden){
     instructionUl.style.display = 'inline'
     instructionsHidden = false;
-    instructionH4.innerHTML = 'Instructions'
+    instructionH4.innerHTML = 'Instructions: (click again to hide)'
     } else {
     instructionUl.style.display = 'none'
     instructionsHidden = true;
@@ -48,21 +46,74 @@ const putTextInBoxes = function(output) {
 const keyboard = document.querySelectorAll('.key')
 const output = document.getElementById('temporary')
 
-for (let keyElement of keyboard) {
-    let thisKey = keyElement.textContent;
-    keyElement.addEventListener('click', function() {
-        switch (thisKey) {
-            case 'Delete':
-                output.textContent = output.textContent.slice(0, output.textContent.length-1);
-                break;
-            case 'enter':
-                alert('hit enter!');
-                break;
-            default: 
-                output.textContent += thisKey;
-        }        
-    })
+const inputLetters = function(){
+    let count = 1 + roundCount
+
+    for (let keyElement of keyboard) {
+        
+        let thisKey = keyElement.textContent;
+        keyElement.addEventListener('click', function() {
+            switch (thisKey) {
+                case 'Delete':
+                getDivBox((count-1).toString()).textContent = ''
+                count--
+                    break;
+                case 'Enter':
+                    validateWord()
+                    //alert('hit enter!');
+                    break;
+                default: 
+                    getDivBox(count.toString()).textContent = thisKey
+                    count++
+            }        
+        })
+    }
 }
 
+inputLetters()
 
+//function to get an individual div box
+
+const getDivBox = function(id) {
+    let divBox = document.getElementById(id)
+    return divBox
+}
+
+//function to check if individual div box is empty
+
+const isEmpty = function(id) {
+    const isThisEmpty = getDivBox(id).innerHTML === ''
+    return isThisEmpty
+}
+
+//function to check if 5 characters have been input 
+//and if these characters combined make a valid word
+
+const validateWord = function(){
+    let userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
+    if (userGuess.length !== 5){
+        alert('Make sure you have entered a 5 letter word!')
+    } else if (!validWords.includes(userGuess)){
+        alert(userGuess + ' is not a valid word!')
+    } else playGame(userGuess)
+}
+
+//checkWord function to match tile colours
+const playGame = function(userWord) {
+    let chosenWordRoundOne = chosenWord
+    for (let i = 0; i < userWord.length; i++) {
+        if (userWord[i] === chosenWordRoundOne[i]){
+            getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
+            
+        } else if (chosenWord.includes(userWord[i])) {
+            console.log('close')
+            getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
+        }
+    }
+    roundCount += 5
+
+    if (userWord === chosenWord) {
+        setTimeout((alert('You Win!')), 500)
+    }
+}
 
