@@ -125,7 +125,7 @@ div.row {
 }
 
 #youWin {
-    font-size: 40px;
+    font-size: 35px;
     background-color: greenyellow;
     height: auto;
     width: 50%;
@@ -138,7 +138,7 @@ div.row {
 }
 
 #youLose {
-    font-size: 40px;
+    font-size: 35px;
     background-color: rgb(255, 82, 47);
     height: auto;
     width: 50%;

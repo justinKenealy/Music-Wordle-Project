@@ -21,9 +21,9 @@ To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Proj
 
 
 ## Next Steps
-- Fix the double letter bug so you don't get yellow when a letter is already showing green
+- you lose userMessage should display what the word was
 
-- Make the alerts for invalid guesses HTML elements, not just JS alerts
+- Fix the double letter bug so you don't get yellow when a letter is already showing green
 
 - Keep track of multiple game rounds with a win counter (can you keep that winning streak??) (will need a function to reset chosenWord and reset the game board and either add +1 to 'streak' or reset streak to zero)
 

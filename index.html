@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Music Wordle</h1>
-    <div id="winStreak">Win Streak: 0</div>
+    <div id="winStreak"></div>
     <div class="instructions">
         <h4 id="instructionsH3">Click Here For Instructions</h3>
         <div id="instructionsUl">
@@ -106,9 +106,13 @@
     </div>
     <div id="youWin">
         Nice Guess - You Win!
+        <br>
+        <button id="winPlayAgain">Play Again</button>
     </div>
     <div id="youLose">
         You're out of guesses - better luck next time :(
+        <br>
+        <button id="losePlayAgain">Play Again</button>
     </div>
     <script src="./script.js" async defer></script>
 </body>

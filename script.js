@@ -13,9 +13,10 @@ const chosenWordCreator = function () {
 let chosenWord = chosenWordCreator()
 console.log(chosenWord)
 
-//count for the entire game
+//count and win steak for the entire game
 let roundCount = 0
 let minLetterCount = 0
+let winStreak = 0
 
 //function to hide/show instructions
 const instructionDiv = document.querySelector('.instructions')
@@ -174,6 +175,8 @@ const playGame = function(userWord) {
     console.log(minLetterCount)
     if (userWord === chosenWord) {
         userWin()
+        winStreak++
+        document.getElementById('winStreak').innerHTML = `Win Streak: ${winStreak}`
     }
     if (minLetterCount === 30) {
         userLose()
