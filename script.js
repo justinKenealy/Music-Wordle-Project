@@ -35,15 +35,9 @@ instructionDiv.addEventListener('click', function(){
     } 
 })
 
-
-//function to implant text into boxes (this should live 
-//inside the event listeners for each ley)(consider using switch statements)
-const putTextInBoxes = function(output) {
-    
-}
-
 //keyboard selectors and event listener 'typing' function
 const keyboard = document.querySelectorAll('.key')
+
 
 const inputLetters = function(){
     let count = 1 + roundCount
@@ -114,7 +108,7 @@ const userLose = function(){
     message.style.opacity=.93
 }
 
-//functions to change key colour when letters are picked
+//functions to change key colour when letters are clicked
 const keyColourGrey = function(key){
     const getKey = document.getElementById(key.toString())
     getKey.style.backgroundColor = 'rgb(110,110,110)'
