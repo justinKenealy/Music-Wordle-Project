@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Music Wordle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Music Wordle</h1>
-
+    <div id="winStreak">Win Streak: 0</div>
     <div class="instructions">
         <h4 id="instructionsH3">Click Here For Instructions</h3>
         <div id="instructionsUl">
@@ -21,6 +22,11 @@
             </ul>
 
         </div>
+    </div>
+    <div id="alertDiv">
+        <img src="sadfrog.png" alt="sad frog" height="100px">
+        <span id="alertSpan"></span>
+        <button id="alertButton">Dismiss</button>
     </div>
     <div id="gameGrid">
 

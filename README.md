@@ -23,8 +23,7 @@ To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Proj
 ## Next Steps
 - Fix the double letter bug so you don't get yellow when a letter is already showing green
 
-
-- make keyboard reflect colours (keys go green/yellow when their characters are in there)
+- Make the alerts for invalid guesses HTML elements, not just JS alerts
 
 - Keep track of multiple game rounds with a win counter (can you keep that winning streak??) (will need a function to reset chosenWord and reset the game board and either add +1 to 'streak' or reset streak to zero)
 

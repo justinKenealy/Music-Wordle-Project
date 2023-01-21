@@ -91,21 +91,45 @@ const isEmpty = function(id) {
 const validateWord = function(){
     let userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
     if (userGuess.length !== 5){
-        alert('Make sure you have entered a 5 letter word!')
+        notFiveLetters()
     } else if (!validWords.includes(userGuess)){
-        alert(userGuess + ' is not a valid word!')
+        notValidWord(userGuess)
     } else playGame(userGuess)
 }
+
+//Functions for alert messages when user inputs invalid word 
+const alertDiv = document.getElementById('alertDiv')
+const alertSpan = document.getElementById('alertSpan')
+
+const notFiveLetters = function() {
+    alertSpan.innerText = 'Please enter a five letter word'
+    alertDiv.style.opacity = 0.97
+}
+
+const notValidWord = function(word) {
+    alertSpan.innerText = `${word} is not a vaild word - please try again`
+    alertDiv.style.opacity = 0.97
+}
+
+const removeAlertDiv = function() {
+    alertSpan.innerText = ''
+    alertDiv.style.opacity = 0
+}
+
+const dismissButton = document.getElementById('alertButton')
+dismissButton.addEventListener('click', removeAlertDiv)
 
 //Function to show userWin or userLose message
 const userWin = function(){
     const message = document.getElementById('youWin')
-    message.style.opacity=.93
+    message.style.opacity=.97
+    message.style.zIndex = 1
 }
 
 const userLose = function(){
     const message = document.getElementById('youLose')
-    message.style.opacity=.93
+    message.style.opacity=.97
+    message.style.zIndex = 1
 }
 
 //functions to change key colour when letters are clicked
@@ -158,6 +182,9 @@ const playGame = function(userWord) {
 //1. check if chosenWord has doubles 
 //2. for every yellow word add +1 to yellow word counter with the letter
 
+
+//create a button inside userWin and userLose to 
+//dismiss the message, play again, and set the streak
 
 
 

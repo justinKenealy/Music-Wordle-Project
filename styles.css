@@ -12,6 +12,7 @@ h1 {
     padding: 10px;
     width: auto;
     display: block;
+    font-family: 'Inter', sans-serif;
 }
 
 h4 {
@@ -25,6 +26,7 @@ h4 {
     display: inline-block;
     margin-top: 15px;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 .instructions:hover {
@@ -78,7 +80,7 @@ div.row {
     
 }
 
-button {
+.key {
     margin: 2px 2px;
     border: 2px solid rgb(0, 70, 201);
     width: 50px;
@@ -123,7 +125,7 @@ button {
 }
 
 #youWin {
-    font-size: 50px;
+    font-size: 40px;
     background-color: greenyellow;
     height: auto;
     width: 50%;
@@ -132,10 +134,11 @@ button {
     left: 25%;
     opacity: 0;
     border: 2px solid black;
+    z-index: -1;
 }
 
 #youLose {
-    font-size: 50px;
+    font-size: 40px;
     background-color: rgb(255, 82, 47);
     height: auto;
     width: 50%;
@@ -144,4 +147,31 @@ button {
     left: 25%;
     opacity: 0;
     border: 2px solid black;
+    z-index: -1;
+}
+
+#alertDiv {
+    font-size: 23px;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-color: rgb(255, 136, 0);
+    height: auto;
+    width: 60%;
+    position: fixed;
+    top: 5%;
+    left: 25%;
+    opacity: 0;
+    border: 2px solid black;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr .5fr;
+    justify-content: center;
+    align-items: center;
+    z-index: -2;
+}
+
+#alertButton {
+    height: 25px;
+    padding: 2px;
+    margin: 0px 4px 0px 2px;
 }
