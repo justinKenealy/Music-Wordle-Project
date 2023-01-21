@@ -44,7 +44,6 @@ const putTextInBoxes = function(output) {
 
 //keyboard selectors and event listener 'typing' function
 const keyboard = document.querySelectorAll('.key')
-const output = document.getElementById('temporary')
 
 const inputLetters = function(){
     let count = 1 + roundCount
@@ -115,19 +114,38 @@ const userLose = function(){
     message.style.opacity=.93
 }
 
+//functions to change key colour when letters are picked
+const keyColourGrey = function(key){
+    const getKey = document.getElementById(key.toString())
+    getKey.style.backgroundColor = 'rgb(110,110,110)'
+}
+
+const keyColourYellow = function(key){
+    const getKey = document.getElementById(key.toString())
+    getKey.style.backgroundColor = 'rgb(240,270,0)'
+}
+
+const keyColourGreen = function(key){
+    const getKey = document.getElementById(key.toString())
+    getKey.style.backgroundColor = 'rgb(144,270,144)'
+}
+
 //checkWord function to match tile colours
 const playGame = function(userWord) {
-    let chosenWordRoundOne = chosenWord
+    //let chosenWordRoundOne = chosenWord
     for (let i = 0; i < userWord.length; i++) {
         if (userWord[i] === chosenWord[i]){
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+            keyColourGreen(userWord[i])
         } else if (chosenWord.includes(userWord[i])) {
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+            keyColourYellow(userWord[i])
         } else {
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+            keyColourGrey(userWord[i])
         }
     }
     roundCount += 5
@@ -141,6 +159,10 @@ const playGame = function(userWord) {
     }
 }
 
+//- Fix the double letter bug so you don't get yellow when a letter is already showing green
+// before applying the colours
+//1. check if chosenWord has doubles 
+//2. for every yellow word add +1 to yellow word counter with the letter
 
 
 
