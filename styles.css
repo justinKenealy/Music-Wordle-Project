@@ -167,7 +167,7 @@ div.row {
     grid-template-columns: 1fr 2fr .5fr;
     justify-content: center;
     align-items: center;
-    z-index: -2;
+    z-index: -1;
 }
 
 #alertButton {

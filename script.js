@@ -104,16 +104,19 @@ const alertSpan = document.getElementById('alertSpan')
 const notFiveLetters = function() {
     alertSpan.innerText = 'Please enter a five letter word'
     alertDiv.style.opacity = 0.97
+    alertDiv.style.zIndex = 2
 }
 
 const notValidWord = function(word) {
     alertSpan.innerText = `${word} is not a vaild word - please try again`
     alertDiv.style.opacity = 0.97
+    alertDiv.style.zIndex = 2
 }
 
 const removeAlertDiv = function() {
     alertSpan.innerText = ''
     alertDiv.style.opacity = 0
+    alertDiv.style.zIndex = -1
 }
 
 const dismissButton = document.getElementById('alertButton')
@@ -170,10 +173,10 @@ const playGame = function(userWord) {
     minLetterCount += 5
     console.log(minLetterCount)
     if (userWord === chosenWord) {
-        setTimeout(userWin(), 500)
+        userWin()
     }
     if (minLetterCount === 30) {
-        setTimeout(userLose(), 500)
+        userLose()
     }
 }
 
