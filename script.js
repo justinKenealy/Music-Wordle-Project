@@ -15,7 +15,7 @@ console.log(chosenWord)
 
 //count for the entire game
 let roundCount = 0
-
+let minLetterCount = 0
 
 //function to hide/show instructions
 const instructionDiv = document.querySelector('.instructions')
@@ -55,16 +55,22 @@ const inputLetters = function(){
         keyElement.addEventListener('click', function() {
             switch (thisKey) {
                 case 'Delete':
-                getDivBox((count-1).toString()).textContent = ''
-                count--
+                    if ((count-1) > minLetterCount) {
+                        getDivBox((count-1).toString()).textContent = ''
+                        count--
+                    } else {
+                        console.log("can't delete")}
                     break;
                 case 'Enter':
                     validateWord()
-                    //alert('hit enter!');
                     break;
                 default: 
-                    getDivBox(count.toString()).textContent = thisKey
-                    count++
+                    if (count < (minLetterCount + 6)){
+                        getDivBox(count.toString()).textContent = thisKey
+                        count++
+                    } else {
+                        console.log('cant add letters')
+                    }
             }        
         })
     }
@@ -98,22 +104,48 @@ const validateWord = function(){
     } else playGame(userGuess)
 }
 
+//Function to show userWin or userLose message
+const userWin = function(){
+    const message = document.getElementById('youWin')
+    message.style.opacity=.93
+}
+
+const userLose = function(){
+    const message = document.getElementById('youLose')
+    message.style.opacity=.93
+}
+
 //checkWord function to match tile colours
 const playGame = function(userWord) {
     let chosenWordRoundOne = chosenWord
     for (let i = 0; i < userWord.length; i++) {
-        if (userWord[i] === chosenWordRoundOne[i]){
+        if (userWord[i] === chosenWord[i]){
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
-            
+            getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
         } else if (chosenWord.includes(userWord[i])) {
-            console.log('close')
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
+            getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+        } else {
+            getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
+            getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
         }
     }
     roundCount += 5
-
+    minLetterCount += 5
+    console.log(minLetterCount)
     if (userWord === chosenWord) {
-        setTimeout((alert('You Win!')), 500)
+        setTimeout(userWin(), 500)
+    }
+    if (minLetterCount === 30) {
+        setTimeout(userLose(), 500)
     }
 }
+
+
+
+
+
+
+
+
 
