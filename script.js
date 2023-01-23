@@ -90,7 +90,6 @@ const isEmpty = function(id) {
 
 const validateWord = function(){
     userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
-    console.log(userGuess)
     if (userGuess.length !== 5){
         notFiveLetters()
     } else if (!validWords.includes(userGuess)){
@@ -203,7 +202,7 @@ const playGame = function(userWord) {
         document.getElementById('winStreak').innerHTML = `Win Streak: ${winStreak}`
     }
 
-    if (minLetterCount === 30) {
+    if (userWord !== chosenWord && minLetterCount === 30) {
         userLose()
     }
 }
