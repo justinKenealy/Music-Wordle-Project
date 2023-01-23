@@ -26,6 +26,7 @@ h4 {
     padding: 10px;
     display: inline-block;
     margin-top: 15px;
+    margin-bottom: 15px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
@@ -64,7 +65,7 @@ li {
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px;
     grid-template-rows: 60px 60px 60px 60px 60px 60px;
-    margin: 40px auto;
+    margin: 30px auto;
     justify-content: center;
 
 }
@@ -85,7 +86,7 @@ div.row {
     margin: 2px 1px;
     border: 2px solid rgb(0, 70, 201);
     width: 8%;
-    max-width: 30px;
+    max-width: 35px;
     height: 50px;
     font-size: 16px;
     background-color: rgb(170, 170, 170);
@@ -176,4 +177,8 @@ div.row {
     height: 25px;
     padding: 2px;
     margin: 0px 4px 0px 2px;
+}
+
+#winStreak {
+    color: red;
 }
