@@ -27,8 +27,10 @@ To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Proj
 
 - Keep track of multiple game rounds with a win counter (can you keep that winning streak??) (will need a function to reset chosenWord and reset the game board and either add +1 to 'streak' or reset streak to zero)
 
+-make a welcome page that asks the user for their name? 
+
 - Research LocalStorage or SessionStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 
-- Research web audio API and add sound effects to your game
+- Research web audio API and add sound effects to your game (add moonlight sonata as the backing track or something) and add little blips for click noises, maybe celebration sounds when you win and error sounds for the alerts
 
 

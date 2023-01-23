@@ -172,7 +172,7 @@ const playGame = function(userWord) {
     }
     roundCount += 5
     minLetterCount += 5
-    console.log(minLetterCount)
+
     if (userWord === chosenWord) {
         userWin()
         winStreak++
