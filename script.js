@@ -39,9 +39,9 @@ instructionDiv.addEventListener('click', function(){
 //keyboard selectors and event listener 'typing' function
 const keyboard = document.querySelectorAll('.key')
 
-
+let count = 1 + roundCount
 const inputLetters = function(){
-    let count = 1 + roundCount
+
 
     for (let keyElement of keyboard) {
         
@@ -52,8 +52,7 @@ const inputLetters = function(){
                     if ((count-1) > minLetterCount) {
                         getDivBox((count-1).toString()).textContent = ''
                         count--
-                    } else {
-                        console.log("can't delete")}
+                    } 
                     break;
                 case 'Enter':
                     validateWord()
@@ -62,9 +61,7 @@ const inputLetters = function(){
                     if (count < (minLetterCount + 6)){
                         getDivBox(count.toString()).textContent = thisKey
                         count++
-                    } else {
-                        console.log('cant add letters')
-                    }
+                    }                     
             }        
         })
     }
@@ -89,8 +86,11 @@ const isEmpty = function(id) {
 //function to check if 5 characters have been input 
 //and if these characters combined make a valid word
 
+
+
 const validateWord = function(){
-    let userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
+    userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
+    console.log(userGuess)
     if (userGuess.length !== 5){
         notFiveLetters()
     } else if (!validWords.includes(userGuess)){
@@ -130,6 +130,12 @@ const userWin = function(){
     message.style.zIndex = 1
 }
 
+const removeYouWin = function() {
+    const message = document.getElementById('youWin')
+    message.style.opacity= 0
+    message.style.zIndex = -1
+}
+
 const userLose = function(){
     const message = document.getElementById('youLose')
     const theWordWas = document.getElementById('theWordWas')
@@ -154,42 +160,6 @@ const keyColourGreen = function(key){
     getKey.style.backgroundColor = 'rgb(144,270,144)'
 }
 
-// //checkWord function to match tile colours
-// const playGame = function(userWord) {
-    
-//     for (let i = 0; i < userWord.length; i++) {
-//         let chosenWodThisRound = []
-//         let chosenWordThisRound = chosenWord.split('')
-//         if (userWord[i] === chosenWordThisRound[i]){
-//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
-//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
-//             chosenWordThisRound[i] = '!'
-//             keyColourGreen(userWord[i])
-//             console.log(chosenWordThisRound)
-//         } else if (chosenWordThisRound.includes(userWord[i])) {
-//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
-//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
-//             chosenWordThisRound[i] = "!"
-//             keyColourYellow(userWord[i])
-//             console.log(chosenWordThisRound)
-//         } else {
-//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
-//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
-//             keyColourGrey(userWord[i])
-//         }
-//     }
-//     roundCount += 5
-//     minLetterCount += 5
-
-//     if (userWord === chosenWord) {
-//         userWin()
-//         winStreak++
-//         document.getElementById('winStreak').innerHTML = `Win Streak: ${winStreak}`
-//     }
-//     if (minLetterCount === 30) {
-//         userLose()
-//     }
-// }
 
 //checkWord function to match tile colours
 const playGame = function(userWord) {
@@ -232,11 +202,47 @@ const playGame = function(userWord) {
         winStreak++
         document.getElementById('winStreak').innerHTML = `Win Streak: ${winStreak}`
     }
+
     if (minLetterCount === 30) {
         userLose()
     }
 }
 
 
+//function to reset key colours
+const resetKeyColours = function() {
+    for (let keyElement of keyboard) {
+        keyElement.style.backgroundColor = null
+    }
+}
 
+//function to reset div boxes in game grid
+const resetGameGrid = function() {
+    const divBoxes = document.querySelectorAll('.box')
+    for (let box of divBoxes) {
+        box.style.backgroundColor = null
+        box.style.border = null
+        box.innerHTML = null
+    }
+}
+
+
+//function to reset entire game whilst retaining scorestreak
+const resetGame = function() {
+    chosenWord = chosenWordCreator()
+    console.log(chosenWord)
+    removeYouWin()
+    roundCount = 0
+    minLetterCount = 0
+    resetKeyColours()
+    resetGameGrid()
+    count = 1
+}
+
+
+const winButton = document.getElementById('winPlayAgain')
+
+winButton.addEventListener('click', function () {
+    resetGame()
+})
 

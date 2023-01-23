@@ -88,7 +88,9 @@ div.row {
     font-size: 18px;
     background-color: rgb(170, 170, 170);
     border-radius: 8%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;    
 } 
 
 
@@ -111,12 +113,6 @@ div.row {
 
 #enter:hover {
     background-color: rgb(200, 255, 117);
-}
-
-.key {
-    display: flex;
-    justify-content: center;
-    align-items: center;    
 }
 
 .key:hover {
