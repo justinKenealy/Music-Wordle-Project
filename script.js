@@ -132,6 +132,8 @@ const userWin = function(){
 
 const userLose = function(){
     const message = document.getElementById('youLose')
+    const theWordWas = document.getElementById('theWordWas')
+    theWordWas.innerHTML = `The word was ${chosenWord}`
     message.style.opacity=.97
     message.style.zIndex = 1
 }
@@ -152,24 +154,76 @@ const keyColourGreen = function(key){
     getKey.style.backgroundColor = 'rgb(144,270,144)'
 }
 
+// //checkWord function to match tile colours
+// const playGame = function(userWord) {
+    
+//     for (let i = 0; i < userWord.length; i++) {
+//         let chosenWodThisRound = []
+//         let chosenWordThisRound = chosenWord.split('')
+//         if (userWord[i] === chosenWordThisRound[i]){
+//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
+//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+//             chosenWordThisRound[i] = '!'
+//             keyColourGreen(userWord[i])
+//             console.log(chosenWordThisRound)
+//         } else if (chosenWordThisRound.includes(userWord[i])) {
+//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
+//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+//             chosenWordThisRound[i] = "!"
+//             keyColourYellow(userWord[i])
+//             console.log(chosenWordThisRound)
+//         } else {
+//             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
+//             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+//             keyColourGrey(userWord[i])
+//         }
+//     }
+//     roundCount += 5
+//     minLetterCount += 5
+
+//     if (userWord === chosenWord) {
+//         userWin()
+//         winStreak++
+//         document.getElementById('winStreak').innerHTML = `Win Streak: ${winStreak}`
+//     }
+//     if (minLetterCount === 30) {
+//         userLose()
+//     }
+// }
+
 //checkWord function to match tile colours
 const playGame = function(userWord) {
-    //let chosenWordRoundOne = chosenWord
-    for (let i = 0; i < userWord.length; i++) {
-        if (userWord[i] === chosenWord[i]){
+    
+    let chosenWodThisRound = []
+    let chosenWordThisRound = chosenWord.split('')
+    let userWordNoGreen = userWord.split('')
+
+    for (let i = 0; i < userWord.length; i++) {       
+        if (userWord[i] === chosenWordThisRound[i]){
             getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(144,270,144)"
             getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+            chosenWordThisRound[i] = '!'
+            userWordNoGreen[i] = '!'
             keyColourGreen(userWord[i])
-        } else if (chosenWord.includes(userWord[i])) {
-            getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
-            getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
-            keyColourYellow(userWord[i])
-        } else {
-            getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
-            getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
-            keyColourGrey(userWord[i])
+        } 
+    }
+       
+    for (let i = 0; i < userWordNoGreen.length; i++) {
+        if (userWordNoGreen[i] !== '!') {
+            if (chosenWordThisRound.includes(userWordNoGreen[i])) {
+                getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(240, 270, 0)"
+                getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+                let arrayIndex = chosenWordThisRound.indexOf(userWord[i])
+                chosenWordThisRound[arrayIndex] = "!"
+                keyColourYellow(userWord[i])
+            } else {
+                getDivBox((i+1+roundCount).toString()).style.backgroundColor = "rgb(110, 110, 110)"
+                getDivBox((i+1+roundCount).toString()).style.border = "2px solid grey"
+                keyColourGrey(userWord[i])
+            }
         }
     }
+    
     roundCount += 5
     minLetterCount += 5
 
@@ -182,18 +236,6 @@ const playGame = function(userWord) {
         userLose()
     }
 }
-
-//- Fix the double letter bug so you don't get yellow when a letter is already showing green
-// before applying the colours
-//1. check if chosenWord has doubles 
-//2. for every yellow word add +1 to yellow word counter with the letter
-
-
-//create a button inside userWin and userLose to 
-//dismiss the message, play again, and set the streak
-
-
-
 
 
 
