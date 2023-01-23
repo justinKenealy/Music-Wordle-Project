@@ -143,6 +143,12 @@ const userLose = function(){
     message.style.zIndex = 1
 }
 
+const removeYouLose = function() {
+    const message = document.getElementById('youLose')
+    message.style.opacity= 0
+    message.style.zIndex = -1
+}
+
 //functions to change key colour when letters are clicked
 const keyColourGrey = function(key){
     const getKey = document.getElementById(key.toString())
@@ -203,6 +209,8 @@ const playGame = function(userWord) {
     }
 
     if (userWord !== chosenWord && minLetterCount === 30) {
+        winStreak = 0
+        document.getElementById('winStreak').innerHTML = ``
         userLose()
     }
 }
@@ -231,6 +239,7 @@ const resetGame = function() {
     chosenWord = chosenWordCreator()
     console.log(chosenWord)
     removeYouWin()
+    removeYouLose()
     roundCount = 0
     minLetterCount = 0
     resetKeyColours()
@@ -244,4 +253,12 @@ const winButton = document.getElementById('winPlayAgain')
 winButton.addEventListener('click', function () {
     resetGame()
 })
+
+const loseButton = document.getElementById('losePlayAgain')
+
+loseButton.addEventListener('click', function () {
+    resetGame()
+})
+
+
 
