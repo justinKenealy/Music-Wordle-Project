@@ -85,8 +85,8 @@ div.row {
 .key {
     margin: 1px 1px;
     border: 2px solid rgb(0, 70, 201);
-    width: 7%;
-    max-width: 35px;
+    width: 6%;
+    max-width: 40px;
     height: 50px;
     font-size: 16px;
     background-color: rgb(170, 170, 170);
