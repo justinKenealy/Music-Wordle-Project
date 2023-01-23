@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    width: 80%;
+
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: whitesmoke;
@@ -9,8 +9,9 @@ body {
 h1 {
     border-top: 2px solid rgb(0, 70, 201);
     border-bottom: 2px solid rgb(0, 70, 201);
+    width: 60%;
     padding: 10px;
-    width: auto;
+    margin: 30px auto 10px;
     display: block;
     font-family: 'Inter', sans-serif;
 }
@@ -83,9 +84,10 @@ div.row {
 .key {
     margin: 2px 1px;
     border: 2px solid rgb(0, 70, 201);
-    width: 30px;
+    width: 8%;
+    max-width: 30px;
     height: 50px;
-    font-size: 18px;
+    font-size: 16px;
     background-color: rgb(170, 170, 170);
     border-radius: 8%;
     display: flex;
@@ -95,7 +97,8 @@ div.row {
 
 
 #delete {
-    width: 65px;
+    width: 14%;
+    max-width: 65px;
     background-color: rgb(255, 0, 0);
     color: rgb(0, 0, 0)
 }
@@ -105,7 +108,8 @@ div.row {
 }
 
 #enter {
-    width: 65px;
+    width: 14%;
+    max-width: 65px;
     background-color: rgb(30, 255, 0);
     color: rgb(0, 0, 0)
     
