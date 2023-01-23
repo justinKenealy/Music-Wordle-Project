@@ -29,6 +29,7 @@ h4 {
     margin-bottom: 15px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    max-width: 90%;
 }
 
 .instructions:hover {
