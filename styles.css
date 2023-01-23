@@ -151,15 +151,17 @@ div.row {
 }
 
 #alertDiv {
-    font-size: 23px;
+    font-size: 18px;
     background-size: 60px;
     background-repeat: no-repeat;
     background-color: rgb(255, 136, 0);
     height: auto;
-    width: 60%;
+    width: 600px;
+    max-width: 75%;
     position: fixed;
-    top: 5%;
-    left: 25%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 0;
     border: 2px solid black;
     text-align: center;

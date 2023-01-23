@@ -94,6 +94,10 @@ const validateWord = function(){
         notFiveLetters()
     } else if (!validWords.includes(userGuess)){
         notValidWord(userGuess)
+        for (let i = 0; i < 5; i++){
+            getDivBox((count-1).toString()).textContent = ''
+            count--
+        }
     } else playGame(userGuess)
 }
 
