@@ -157,6 +157,8 @@ const userLose = function(){
         yourStreak.style.zIndex = 1
         yourStreakWas.innerHTML = `You finished with a score of ${winStreak}`
         
+        
+        //following code for socials taken from youTube tutorial https://www.youtube.com/watch?v=q-tGimz34Ho
         let link = 'https://justinkenealy.github.io/Music-Wordle-Project/'
         const msg = encodeURIComponent(`I scored ${winStreak} on Music Wordle! Can you beat that?`)
         const title = encodeURIComponent(document.querySelector('title').textContent)
