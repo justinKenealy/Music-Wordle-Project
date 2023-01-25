@@ -156,6 +156,19 @@ const userLose = function(){
         yourStreak.style.opacity=.97
         yourStreak.style.zIndex = 1
         yourStreakWas.innerHTML = `You finished with a score of ${winStreak}`
+        
+        let link = 'https://justinkenealy.github.io/Music-Wordle-Project/'
+        const msg = encodeURIComponent(`I scored ${winStreak} on Music Wordle! Can you beat that?`)
+        const title = encodeURIComponent(document.querySelector('title').textContent)
+
+        const fb = document.querySelector('.facebook')
+        fb.href = `https://www.facebook.com/share.php?u=${link}`
+
+        const twitter = document.querySelector('.twitter')
+        twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=wordle,fun,game,beatmyhighscore`
+
+        const linkedIn = document.querySelector('.linkedin')
+        linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`
     }
 }
 
