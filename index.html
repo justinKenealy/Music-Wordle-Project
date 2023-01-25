@@ -10,6 +10,10 @@
 </head>
 <body>
     <h1>Music Wordle</h1>
+    <audio controls autoplay loop>
+        <source src="audio/moonlight.mp3" type="audio/mp3">
+    </audio>
+    <br>
     <div class="instructions">
         <h4 id="instructionsH3">Click Here For Instructions</h3>
         <div id="instructionsUl">
@@ -17,10 +21,19 @@
                 <li>- Use the Keyboard below to enter your letters, building a five-letter word</li>
                 <li>- Hit 'Enter' when you are ready</li>
                 <li>- A green tile means that letter is an exact match, while yellow means correct letter in the wrong position</li>
-                <li>- You have 6 attempts to guess the full word. Good luck!</li>
+                <li>- You have 6 attempts to guess the full word.</li>
+                <li>- Play multiple rounds to build a score streak.</li>
+                <li>- Choose easy for 1 point, medium for 2, and hard for 3!</li>
             </ul>
 
         </div>
+    </div>
+    <br>
+    <div id = "difficulty">
+        Difficulty Setting:
+        <button id="easy" class="selected">Easy</button>
+        <button id="medium">Medium</button>
+        <button id="hard">Hard</button>
     </div>
     <br>
     <div id="winStreak"></div>

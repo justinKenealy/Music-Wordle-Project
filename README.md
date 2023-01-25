@@ -21,6 +21,9 @@ To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Proj
 
 
 ## Next Steps
+-add a difficulty setting hard means streak +=3, medium +=2
+
+
 - Research LocalStorage or SessionStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 
 - Research web audio API and add sound effects to your game (add moonlight sonata as the backing track or something) and add little blips for click noises, maybe celebration sounds when you win and error sounds for the alerts
