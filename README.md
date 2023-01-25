@@ -23,6 +23,8 @@ To play the game, click here:  https://justinkenealy.github.io/Music-Wordle-Proj
 ## Next Steps
 - animations for you win?
 
+- explain code in readme?
+
 - Research LocalStorage or SessionStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 
 - Research web audio API and add sound effects to your game 
