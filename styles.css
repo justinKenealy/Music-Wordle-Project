@@ -145,7 +145,20 @@ div.row {
     height: auto;
     width: 50%;
     position: fixed;
-    top: 45%;
+    top: 40%;
+    left: 25%;
+    opacity: 0;
+    border: 2px solid black;
+    z-index: -1;
+}
+
+#yourStreak {
+    font-size: 30px;
+    background-color: greenyellow;
+    height: auto;
+    width: 50%;
+    position: fixed;
+    top: 70%;
     left: 25%;
     opacity: 0;
     border: 2px solid black;
@@ -189,6 +202,10 @@ div.row {
 }
 
 #losePlayAgain {
+    margin-bottom: 6px;
+}
+
+#streakDismissButton {
     margin-bottom: 6px;
 }
 

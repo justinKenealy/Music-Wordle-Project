@@ -129,7 +129,7 @@ const removeAlertDiv = function() {
 const dismissButton = document.getElementById('alertButton')
 dismissButton.addEventListener('click', removeAlertDiv)
 
-//Function to show userWin or userLose message
+//Function to show userWin or userLose (+ streak) message
 const userWin = function(){
     const message = document.getElementById('youWin')
     message.style.opacity=.97
@@ -145,9 +145,18 @@ const removeYouWin = function() {
 const userLose = function(){
     const message = document.getElementById('youLose')
     const theWordWas = document.getElementById('theWordWas')
+    const yourStreak = document.getElementById('yourStreak')
+    const yourStreakWas = document.getElementById('yourStreakWas')
     theWordWas.innerHTML = `The word was ${chosenWord}`
+    
     message.style.opacity=.97
     message.style.zIndex = 1
+    console.log(winStreak)
+    if (winStreak > 0) {
+        yourStreak.style.opacity=.97
+        yourStreak.style.zIndex = 1
+        yourStreakWas.innerHTML = `You finished with a score of ${winStreak}`
+    }
 }
 
 const removeYouLose = function() {
@@ -155,6 +164,18 @@ const removeYouLose = function() {
     message.style.opacity= 0
     message.style.zIndex = -1
 }
+
+const removeStreakDiv = function() {
+    const streakDiv = document.getElementById('yourStreak')
+    streakDiv.style.opacity= 0
+    streakDiv.style.zIndex = -1   
+}
+
+const yourStreakDismissButton = document.getElementById('streakDismissButton')
+
+yourStreakDismissButton.addEventListener('click', function(){
+    removeStreakDiv()
+})
 
 //functions to change key colour when letters are clicked
 const keyColourGrey = function(key){
@@ -224,21 +245,24 @@ const playGame = function(userWord) {
 
     if (difficulty === 0){
         if (userWord !== chosenWord && minLetterCount === 30) {
+            userLose()
             winStreak = 0
             document.getElementById('winStreak').innerHTML = ``
-            userLose()
+            
         }
     } else if (difficulty === 1){
         if (userWord !== chosenWord && minLetterCount === 25) {
+            userLose()
             winStreak = 0
             document.getElementById('winStreak').innerHTML = ``
-            userLose()
+            
         }
     } else {
         if (userWord !== chosenWord && minLetterCount === 20) {
+            userLose()
             winStreak = 0
             document.getElementById('winStreak').innerHTML = ``
-            userLose()
+            
         }
     }
 }
@@ -295,8 +319,6 @@ const boxesRow5 = document.getElementsByClassName('row5')
 const boxesRow6 = document.getElementsByClassName('row6')
 const gameGrid = document.getElementById('gameGrid')
 
-
-
 hardButton.addEventListener('click', () => {
     if (gameStarted === 0) {
         mediumButton.className = ''
@@ -344,6 +366,7 @@ easyButton.addEventListener('click', () => {
     }
     difficulty = 0
 })
+
 
 
 
