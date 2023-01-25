@@ -293,6 +293,8 @@ const mediumButton = document.getElementById('medium')
 const hardButton = document.getElementById('hard')
 const boxesRow5 = document.getElementsByClassName('row5')
 const boxesRow6 = document.getElementsByClassName('row6')
+const gameGrid = document.getElementById('gameGrid')
+
 
 
 hardButton.addEventListener('click', () => {
@@ -306,6 +308,7 @@ hardButton.addEventListener('click', () => {
         for (let box of boxesRow5){
             box.style.display = 'none'
         }
+        gameGrid.style.gridTemplateRows = "60px 60px 60px 60px"
     }
     difficulty = 2
 })
@@ -321,6 +324,7 @@ mediumButton.addEventListener('click', () => {
         for (let box of boxesRow5){
             box.style.display = ''
         }
+        gameGrid.style.gridTemplateRows = "60px 60px 60px 60px 60px"
     }
     difficulty = 1
 })
@@ -336,6 +340,7 @@ easyButton.addEventListener('click', () => {
         for (let box of boxesRow5){
             box.style.display = ''
         }
+        gameGrid.style.gridTemplateRows = "60px 60px 60px 60px 60px 60px"
     }
     difficulty = 0
 })
