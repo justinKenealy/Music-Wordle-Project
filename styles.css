@@ -1,9 +1,12 @@
 body {
     text-align: center;
-
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: whitesmoke;
+    background-color: rgb(191, 221, 231);
+}
+
+audio {
+    background-color: rgb(191,221,231);
 }
 
 h1 {
@@ -215,6 +218,24 @@ div.row {
 
 .selected {
     opacity: 0.5;
+}
+
+#easy {
+    color:greenyellow;
+    background-color: black;
+    border-radius: 10%;
+}
+
+#medium {
+    color:yellow;
+    background-color: black;
+    border-radius: 10%;
+}
+
+#hard {
+    color:red;
+    background-color: black;
+    border-radius: 10%;
 }
 
 @media only screen 

@@ -79,13 +79,6 @@ const getDivBox = function(id) {
     return divBox
 }
 
-//function to check if individual div box is empty
-
-const isEmpty = function(id) {
-    const isThisEmpty = getDivBox(id).innerHTML === ''
-    return isThisEmpty
-}
-
 //function to check if 5 characters have been input 
 //and if these characters combined make a valid word
 
@@ -109,12 +102,18 @@ const alertDiv = document.getElementById('alertDiv')
 const alertSpan = document.getElementById('alertSpan')
 
 const notFiveLetters = function() {
+    const errorSound = new Audio("audio/error.mp3")
+    errorSound.currentTime = 0.5
+    errorSound.play()
     alertSpan.innerText = 'Please enter a five letter word'
     alertDiv.style.opacity = 0.97
     alertDiv.style.zIndex = 2
 }
 
 const notValidWord = function(word) {
+    const errorSound = new Audio("audio/error.mp3")
+    errorSound.currentTime = 0.5
+    errorSound.play()
     alertSpan.innerText = `${word} is not a vaild word - please try again`
     alertDiv.style.opacity = 0.97
     alertDiv.style.zIndex = 2
@@ -134,6 +133,8 @@ const userWin = function(){
     const message = document.getElementById('youWin')
     message.style.opacity=.97
     message.style.zIndex = 1
+    const winSound = new Audio("audio/win.mp3")
+    winSound.play()
 }
 
 const removeYouWin = function() {
@@ -143,6 +144,9 @@ const removeYouWin = function() {
 }
 
 const userLose = function(){
+    const loseSound = new Audio("audio/gameOver.wav")
+    loseSound.play()
+
     const message = document.getElementById('youLose')
     const theWordWas = document.getElementById('theWordWas')
     const yourStreak = document.getElementById('yourStreak')
@@ -383,62 +387,10 @@ easyButton.addEventListener('click', () => {
 })
 
 
+//function to start the background audio as soon as user interacts
+const backgroundMusic = function () {
+    const moonlight = document.getElementById("moonlight")
+    moonlight.play()    
+}
 
-
-
-
-
-
-
-// //Code for audio sound effects
-// const audioContext = new AudioContext();
-// const buffer = audioContext.createBuffer(
-//     1, 
-//     audioContext.sampleRate * 1,
-//     audioContext.sampleRate
-// )
-
-// const channelData = buffer.getChannelData(0)
-
-// for (let i=0; i < buffer.length; i++) {
-//     channelData[i] = Math.random() * 2 - 1
-// }
-
-// const primaryGainControl = audioContext.createGain()
-// primaryGainControl.gain.setValueAtTime(0.05, 0);
-// primaryGainControl.connect(audioContext.destination)
-
-// const snareButton = document.createElement('button')
-// snareButton.innerText = 'white noise'
-
-// const snareFilter = audioContext.createBiquadFilter();
-// snareFilter.type = "highpass"
-// snareFilter.frequency.value = 1500;
-// snareFilter.connect(primaryGainControl)
-
-// snareButton.addEventListener('click', () => {
-//     const whiteNoiseSource = audioContext.createBufferSource();
-//     whiteNoiseSource.buffer = buffer;
-//     whiteNoiseSource.connect(snareFilter)
-//     whiteNoiseSource.start()
-// })
-
-// document.body.appendChild(snareButton)
-
-// //code to use sound effects
-// const sound_URL = "https://www.epidemicsound.com/track/MeovgKewUZ/"
-
-// const soundButton = document.createElement('button')
-// soundButton.innerText = "Sound effect"
-// soundButton.addEventListener("click", async () => {
-//     const response = await fetch(sound_URL)
-//     const soundBuffer = await response.arrayBuffer()
-//     const thisSoundBuffer = await audioContext.decodeAudioData(soundBuffer)
-
-//     const soundSource = audioContext.createBufferSource()
-//     soundSource.buffer = thisSoundBuffer
-
-//     soundSource.connect(primaryGainControl)
-//     soundSource.start()
-// })
-// document.body.appendChild(soundButton)
+document.body.addEventListener('click', backgroundMusic)
