@@ -157,7 +157,7 @@ div.row {
     height: auto;
     width: 50%;
     position: fixed;
-    top: 55%;
+    top: 45%;
     left: 25%;
     opacity: 0;
     border: 2px solid black;
@@ -271,5 +271,6 @@ and (max-device-width: 1000px){
 
     #beethoven, #mozart, #bach, #noMusic, #easy, #medium, #hard {
         font-size: 12px;
+        margin: 0px;
     }
 }
