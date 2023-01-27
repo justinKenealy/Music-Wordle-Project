@@ -264,4 +264,12 @@ and (max-device-width: 1000px){
         left: 10%;
         font-size: 20px;
     }
+
+    #backgroundMusic, #difficulty {
+        font-size: 12px;
+    }
+
+    #beethoven, #mozart, #bach, #noMusic, #easy, #medium, #hard {
+        font-size: 12px;
+    }
 }
