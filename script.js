@@ -3,7 +3,6 @@ const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS
 const musicWords = ["Agoge", "Anima", "Assai", "Basso", "Baton", "Brace", "Breve", "Canon", "Carol", "Catch", "Chant", "Choir", "Chord", "Dance", "Dolce", "Drone", "Drums", "Etude", "Flute", "Forte", "Fugue", "Fuoco", "Gamba", "Gamut", "Grave", "Gusto", "Large", "Largo", "Lento", "Lyric", "Major", "March", "Metre", "Mezzo", "Minim", "Minor", "Molto", "Mosso", "Motet", "Motif", "Nonet", "Octet", "Opera", "Ossia", "Pause", "Pedal", "Piano", "Pitch", "Primo", "Rondo", "Round", "Scale", "Score", "Segno", "Segue", "Shake", "Sharp", "Sixth", "Slide", "Songs", "Staff", "Stave", "Strum", "Suite", "Swell", "Table", "Tacet", "Tempo", "Tenor", "Theme", "Third", "Tonic", "Touch", "Triad", "Trill", "Trope", "Tutti", "Upbow", "Valse", "Valve", "Voice", "Yodel"]
 
 //function to create the selected word for each round
-
 const chosenWordCreator = function () {
     const randomNumber = Math.floor(Math.random() * musicWords.length)
     let chosenWord = musicWords[randomNumber]
@@ -43,7 +42,6 @@ const keyboard = document.querySelectorAll('.key')
 
 let count = 1 + roundCount
 const inputLetters = function(){
-
 
     for (let keyElement of keyboard) {
         
@@ -152,15 +150,13 @@ const userLose = function(){
     const yourStreak = document.getElementById('yourStreak')
     const yourStreakWas = document.getElementById('yourStreakWas')
     theWordWas.innerHTML = `The word was ${chosenWord}`
-    
     message.style.opacity=.97
     message.style.zIndex = 1
-    console.log(winStreak)
+
     if (winStreak > 0) {
         yourStreak.style.opacity=.97
         yourStreak.style.zIndex = 1
         yourStreakWas.innerHTML = `You finished with a score of ${winStreak}`
-        
         
         //following code for socials taken from youTube tutorial https://www.youtube.com/watch?v=q-tGimz34Ho
         let link = 'https://justinkenealy.github.io/Music-Wordle-Project/'
@@ -286,7 +282,6 @@ const playGame = function(userWord) {
     }
 }
 
-
 //function to reset key colours
 const resetKeyColours = function() {
     for (let keyElement of keyboard) {
@@ -304,7 +299,6 @@ const resetGameGrid = function() {
     }
 }
 
-
 //function to reset entire game whilst retaining scorestreak
 const resetGame = function() {
     chosenWord = chosenWordCreator()
@@ -318,7 +312,6 @@ const resetGame = function() {
     count = 1
     gameStarted = 0
 }
-
 
 const winButton = document.getElementById('winPlayAgain')
 winButton.addEventListener('click', function () {
@@ -350,8 +343,8 @@ hardButton.addEventListener('click', () => {
             box.style.display = 'none'
         }
         gameGrid.style.gridTemplateRows = "60px 60px 60px 60px"
+        difficulty = 2
     }
-    difficulty = 2
 })
 
 mediumButton.addEventListener('click', () => {
@@ -366,8 +359,8 @@ mediumButton.addEventListener('click', () => {
             box.style.display = ''
         }
         gameGrid.style.gridTemplateRows = "60px 60px 60px 60px 60px"
+        difficulty = 1
     }
-    difficulty = 1
 })
 
 easyButton.addEventListener('click', () => {
@@ -382,15 +375,59 @@ easyButton.addEventListener('click', () => {
             box.style.display = ''
         }
         gameGrid.style.gridTemplateRows = "60px 60px 60px 60px 60px 60px"
+        difficulty = 0
     }
-    difficulty = 0
 })
 
 
-//function to start the background audio as soon as user interacts
-const backgroundMusic = function () {
-    const moonlight = document.getElementById("moonlight")
-    moonlight.play()    
-}
+//function to interact with background musiceasyButton.addEventListener('click', () => {
+const noMusicButton = document.getElementById('noMusic')
+const beethovenButton = document.getElementById('beethoven')
+const mozartButton = document.getElementById('mozart')
+const bachButton = document.getElementById('bach')
 
-document.body.addEventListener('click', backgroundMusic)
+const backgroundMusic = document.getElementById("backgroundMusic")
+
+beethovenButton.addEventListener('click', () => {
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
+    backgroundMusic.src = "audio/moonlight.mp3"
+    backgroundMusic.play()    
+    beethovenButton.className = "selectedMusic"
+    noMusicButton.className = ""
+    mozartButton.className = ""
+    bachButton.className = ""
+})
+
+mozartButton.addEventListener('click', () => {
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
+    backgroundMusic.src = "audio/figaro.mp3"
+    backgroundMusic.play()
+    beethovenButton.className = ""
+    noMusicButton.className = ""
+    mozartButton.className = "selectedMusic"
+    bachButton.className = ""    
+})
+
+bachButton.addEventListener('click', () => {
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
+    backgroundMusic.src = "audio/ToccataAndFugue.mp3"
+    backgroundMusic.play()
+    beethovenButton.className = ""
+    noMusicButton.className = ""
+    mozartButton.className = ""
+    bachButton.className = "selectedMusic"    
+})
+
+noMusicButton.addEventListener('click', () => {
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
+    backgroundMusic.src = ""
+    beethovenButton.className = ""
+    noMusicButton.className = "selectedMusic"
+    mozartButton.className = ""
+    bachButton.className = ""   
+})
+    

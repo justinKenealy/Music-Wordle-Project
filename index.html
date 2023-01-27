@@ -11,8 +11,8 @@
 </head>
 <body>
     <h1>Music Wordle</h1>
-    <audio id="moonlight" autoplay loop>
-        <source src="audio/moonlight.mp3" type="audio/mp3">
+    <audio id="backgroundMusic" loop>
+        <source src="" type="audio/mp3">
     </audio>
     <br>
     <div class="instructions">
@@ -30,6 +30,13 @@
         </div>
     </div>
     <br>
+    <div id = "backgroundMusic">
+        Background Music:
+        <button id="noMusic" class="selectedMusic">None</button>
+        <button id="beethoven">Beethoven</button>
+        <button id="mozart">Mozart</button>
+        <button id="bach">Bach</button>
+    </div>
     <div id = "difficulty">
         Difficulty Setting:
         <button id="easy" class="selected">Easy</button>
@@ -142,7 +149,7 @@
         <button id="streakDismissButton">Dismiss</button>
     </div>        
         <br>
-        <audio id = "errorSound" src="audio/"></audio>
+
     <script src="./script.js" async defer></script>
 </body>
 </html>

@@ -5,10 +5,6 @@ body {
     background-color: rgb(191, 221, 231);
 }
 
-audio {
-    background-color: rgb(191,221,231);
-}
-
 h1 {
     border-top: 2px solid rgb(0, 70, 201);
     border-bottom: 2px solid rgb(0, 70, 201);
@@ -216,6 +212,10 @@ div.row {
     margin: 20px 0px;
 }
 
+#backgroundMusic {
+    margin: 20px 0px;
+}
+
 .selected {
     opacity: 0.5;
 }
@@ -224,18 +224,32 @@ div.row {
     color:greenyellow;
     background-color: black;
     border-radius: 10%;
+    height: 26px;
 }
 
 #medium {
     color:yellow;
     background-color: black;
     border-radius: 10%;
+    height: 26px;
 }
 
 #hard {
     color:red;
     background-color: black;
     border-radius: 10%;
+    height: 26px;
+}
+
+#beethoven, #mozart, #bach, #noMusic {
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+    height: 26px;
+}
+
+.selectedMusic {
+    opacity: 0.5;
 }
 
 @media only screen 
