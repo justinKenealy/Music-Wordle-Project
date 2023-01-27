@@ -71,7 +71,6 @@ const inputLetters = function(){
 inputLetters()
 
 //function to get an individual div box
-
 const getDivBox = function(id) {
     let divBox = document.getElementById(id)
     return divBox
@@ -79,8 +78,6 @@ const getDivBox = function(id) {
 
 //function to check if 5 characters have been input 
 //and if these characters combined make a valid word
-
-
 
 const validateWord = function(){
     userGuess = getDivBox((1+roundCount).toString()).textContent + getDivBox((2+roundCount).toString()).textContent + getDivBox((3+roundCount).toString()).textContent + getDivBox((4+roundCount).toString()).textContent + getDivBox((5+roundCount).toString()).textContent
@@ -187,7 +184,6 @@ const removeStreakDiv = function() {
 }
 
 const yourStreakDismissButton = document.getElementById('streakDismissButton')
-
 yourStreakDismissButton.addEventListener('click', function(){
     removeStreakDiv()
 })
@@ -207,7 +203,6 @@ const keyColourGreen = function(key){
     const getKey = document.getElementById(key.toString())
     getKey.style.backgroundColor = 'rgb(144,270,144)'
 }
-
 
 //checkWord function to match tile colours
 const playGame = function(userWord) {
@@ -379,13 +374,11 @@ easyButton.addEventListener('click', () => {
     }
 })
 
-
 //function to interact with background musiceasyButton.addEventListener('click', () => {
 const noMusicButton = document.getElementById('noMusic')
 const beethovenButton = document.getElementById('beethoven')
 const mozartButton = document.getElementById('mozart')
 const bachButton = document.getElementById('bach')
-
 const backgroundMusic = document.getElementById("backgroundMusic")
 
 beethovenButton.addEventListener('click', () => {
