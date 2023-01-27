@@ -380,6 +380,7 @@ const beethovenButton = document.getElementById('beethoven')
 const mozartButton = document.getElementById('mozart')
 const bachButton = document.getElementById('bach')
 const backgroundMusic = document.getElementById("backgroundMusic")
+const documentBody = document.body
 
 beethovenButton.addEventListener('click', () => {
     backgroundMusic.pause()
@@ -390,6 +391,7 @@ beethovenButton.addEventListener('click', () => {
     noMusicButton.className = ""
     mozartButton.className = ""
     bachButton.className = ""
+    document.body.style.backgroundImage = "linear-gradient(rgb(160, 222, 255), rgb(119, 255, 149))"
 })
 
 mozartButton.addEventListener('click', () => {
@@ -401,6 +403,7 @@ mozartButton.addEventListener('click', () => {
     noMusicButton.className = ""
     mozartButton.className = "selectedMusic"
     bachButton.className = ""    
+    document.body.style.backgroundImage = "linear-gradient(rgb(160, 222, 255), rgb(255, 160, 119))"
 })
 
 bachButton.addEventListener('click', () => {
@@ -411,7 +414,8 @@ bachButton.addEventListener('click', () => {
     beethovenButton.className = ""
     noMusicButton.className = ""
     mozartButton.className = ""
-    bachButton.className = "selectedMusic"    
+    bachButton.className = "selectedMusic" 
+    document.body.style.backgroundImage = "linear-gradient(rgb(236, 255, 160), rgb(255, 135, 119))"  
 })
 
 noMusicButton.addEventListener('click', () => {

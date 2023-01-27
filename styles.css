@@ -2,13 +2,15 @@ body {
     text-align: center;
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(191, 221, 231);
+    background-image: linear-gradient(rgb(160, 222, 255), rgb(119, 255, 149)); 
+    background-position: center top;
+    background-size: 100% 100%;
 }
 
 h1 {
     border-top: 2px solid rgb(0, 70, 201);
     border-bottom: 2px solid rgb(0, 70, 201);
-    width: 70%;
+    width: 35%;
     padding: 10px;
     margin: 30px auto 10px;
     display: block;
@@ -193,7 +195,8 @@ div.row {
 }
 
 #winStreak {
-    color: rgb(207, 124, 0);
+    color: black;
+    font-size: 18px;
 }
 
 #winPlayAgain {
@@ -257,6 +260,10 @@ and (max-device-width: 1000px){
     .key {
         margin: .5px .5px;
         width: 7%;
+    }
+
+    h1 {
+        width: fit-content;
     }
 
     #youWin, #youLose, #yourStreak {
