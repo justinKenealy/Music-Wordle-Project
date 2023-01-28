@@ -197,6 +197,7 @@ div.row {
 #winStreak {
     color: black;
     font-size: 18px;
+    font-weight: 900;
 }
 
 #winPlayAgain {
@@ -212,7 +213,7 @@ div.row {
 }
 
 #difficulty {
-    margin: 20px 0px;
+    margin: 20px 0px 10px 0px;
 }
 
 #backgroundMusic {

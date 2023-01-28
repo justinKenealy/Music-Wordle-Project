@@ -15,9 +15,14 @@ console.log(chosenWord)
 //count and win steak for the entire game
 let roundCount = 0
 let minLetterCount = 0
-let winStreak = 0
+let winStreak = localStorage.getItem('score')
 let difficulty = 0
 let gameStarted = 0
+
+//display winstreak if score (from local storage) > 0
+if (winStreak > 0){
+    document.getElementById('winStreak').innerHTML = `Score Streak: ${winStreak}`
+}
 
 //function to hide/show instructions
 const instructionDiv = document.querySelector('.instructions')
@@ -169,6 +174,7 @@ const userLose = function(){
         const linkedIn = document.querySelector('.linkedin')
         linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`
     }
+    localStorage.removeItem('score')
 }
 
 const removeYouLose = function() {
@@ -244,10 +250,13 @@ const playGame = function(userWord) {
         userWin()
         if (difficulty === 0){
             winStreak++
+            localStorage.setItem('score', winStreak)
         } else if (difficulty === 1){
             winStreak += 2
+            localStorage.setItem('score', winStreak)
         } else {
             winStreak += 3
+            localStorage.setItem('score', winStreak)
         }
 
         document.getElementById('winStreak').innerHTML = `Score Streak: ${winStreak}`
