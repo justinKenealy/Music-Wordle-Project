@@ -10,7 +10,8 @@ body {
 h1 {
     border-top: 2px solid rgb(0, 70, 201);
     border-bottom: 2px solid rgb(0, 70, 201);
-    width: 35%;
+    width: 50%;
+    max-width: 450px;
     padding: 10px;
     margin: 30px auto 10px;
     display: block;
@@ -23,7 +24,7 @@ h4 {
 }
 .instructions {
     text-align: left;
-    border: 2px solid rgb(207, 124, 0);
+    border: 2px solid rgb(0, 70, 201);
     padding: 10px;
     display: inline-block;
     margin-top: 15px;
@@ -91,7 +92,7 @@ div.row {
     max-width: 50px;
     height: 50px;
     font-size: 14px;
-    background-color: rgb(170, 170, 170);
+    background-color: rgb(200, 200, 200); 
     border-radius: 8%;
     display: flex;
     justify-content: center;
@@ -129,7 +130,7 @@ div.row {
 
 #youWin {
     font-size: 30px;
-    background-color: greenyellow;
+    background-color: rgb(144, 270, 144);
     height: auto;
     width: 50%;
     position: fixed;
@@ -155,7 +156,7 @@ div.row {
 
 #yourStreak {
     font-size: 30px;
-    background-color: greenyellow;
+    background-color: rgb(144, 270, 144);
     height: auto;
     width: 50%;
     position: fixed;
@@ -225,7 +226,7 @@ div.row {
 }
 
 #easy {
-    color:greenyellow;
+    color:rgb(144, 270, 144);
     background-color: black;
     border-radius: 10%;
     height: 26px;
@@ -250,6 +251,18 @@ div.row {
     color: white;
     border-radius: 10%;
     height: 26px;
+}
+
+#beethoven:hover, #mozart:hover, #bach:hover, #noMusic:hover {
+    color: black;
+    background-color: white;
+    cursor:grab;
+}
+
+#easy:hover, #medium:hover, #hard:hover {
+    color: black;
+    background-color: white;
+    cursor:grab;
 }
 
 .selectedMusic {
